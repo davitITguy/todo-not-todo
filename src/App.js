@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TodoForm from "./components/TodoForm";
+import TodoTable from "./components/TodoTable";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     tasks: [
+  //       {
+  //         id: 1,
+  //         taskItem: "Study ReactJs",
+  //         taskStatus: true,
+  //       },
+  //       {
+  //         id: 2,
+  //         task: "Create Todo Prj",
+  //         taskStatus: true,
+  //       },
+  //       {
+  //         id: 3,
+  //         task: "Get project from sweeft",
+  //         taskStatus: false,
+  //       },
+  //     ],
+  //   };
+  // }
+
+  render() {
+    return (
+      <div>
+        <TodoForm />
+        <TodoTable />
+      </div>
+    );
+  }
 }
 
 export default App;
