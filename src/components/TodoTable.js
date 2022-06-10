@@ -27,6 +27,30 @@ class TodoTable extends Component {
     });
   };
 
+  editTodos = (todos, taskId) => {
+    const todoItem = this.state.todos.find(todo => {
+      return todo.taskId === taskId;
+    });
+    todoItem.task = todos;
+
+    this.setState(prevState => {
+      const updated = prevState.todos.map(todo => {
+        if (todo.taskId === taskId) {
+          return todoItem;
+        }
+        return todo;
+      });
+      return {
+        updated,
+      };
+    });
+  };
+
+  editVal = (promptVal, taskId) => {
+    console.log(promptVal, taskId);
+    return this.editTodos(promptVal, taskId);
+  };
+
   deleteHandler = taskId => {
     // ვეძებთ ინდექსით მასივში ობიექტს და ვადარებთ აიდის
     const todoIndex = this.state.todos.findIndex(todo => {
@@ -62,6 +86,7 @@ class TodoTable extends Component {
                   status={item.taskStatus}
                   // გადავცემთ პროპსით ფუნქციას
                   deleteHandler={this.deleteHandler}
+                  editVal={this.editVal}
                 />
               );
             })}

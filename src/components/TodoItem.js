@@ -5,15 +5,15 @@ class TodoItem extends Component {
     super(props);
   }
 
-  editHandler = () => {
-    // unda miigos settodos da daaupdateos state
-    // setTodos(promptCaller){
+  // editHandler = () => {
+  //   // unda miigos settodos da daaupdateos state
+  //   // setTodos(promptCaller){
 
-    // }
-    const promptCaller = prompt("edit task");
-    console.log(this.props.name);
-    return setTodos;
-  };
+  //   // }
+  //   const promptCaller = prompt("edit task");
+  //   console.log(this.props.name);
+  //   return setTodos;
+  // };
 
   render() {
     return (
@@ -22,7 +22,7 @@ class TodoItem extends Component {
           <td>{this.props.name}</td>
           <td>{this.props.status ? "done" : "In Progress"}</td>
           <td>
-            <button onClick={() => this.editHandler()}> Edit</button>
+            <button onClick={() => this.props.editVal(prompt("Edit Todo"), this.props.taskId)}> Edit</button>
           </td>
           <td>
             <button onClick={() => this.props.deleteHandler(this.props.taskId)}> X</button>
