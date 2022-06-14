@@ -20,10 +20,14 @@ class TodoForm extends Component {
     alert(this.state.inputValue);
   };
 
+  handleSubmit = el => {
+    el.preventDefault();
+  };
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="text">Add Task</label>
           <input
             value={this.state.inputValue}

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class TodoItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   // editHandler = () => {
   //   // unda miigos settodos da daaupdateos state
   //   // setTodos(promptCaller){
@@ -19,10 +15,10 @@ class TodoItem extends Component {
     return (
       <>
         <tr>
-          <td>{this.props.name}</td>
-          <td>{this.props.status ? "done" : "In Progress"}</td>
+          <td>{this.props.todo.task}</td>
+          <td>{this.props.todo.taskStatus ? "done" : "In Progress"}</td>
           <td>
-            <button onClick={() => this.props.editVal(prompt("Edit Todo"), this.props.taskId)}> Edit</button>
+            <button onClick={() => this.props.editHandler(this.props.todo)}> Edit</button>
           </td>
           <td>
             <button onClick={() => this.props.deleteHandler(this.props.taskId)}> X</button>
@@ -32,5 +28,7 @@ class TodoItem extends Component {
     );
   }
 }
+
+// onClick={() => this.props.editVal(prompt("Edit Todo"), this.props.taskId)}
 
 export default TodoItem;
